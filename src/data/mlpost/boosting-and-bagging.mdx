@@ -1,0 +1,50 @@
+---
+title: "Model Ensemble: Bagging and Boosting"
+summary: "Bagging aggregates results from multiple independent predictors to achieve better performance. On the other hand, boosting aggregates multiple dependent models."
+tags:
+  - "concept-ML"
+date: 2023-07-20
+---
+
+<TOCInline toc={props.toc} asDisclosure={true} exclude="" toHeading={4} />
+
+## Bagging
+
+Bagging (Bootstrap aggregating) is used to improve the performance of a predictor.
+
+In bagging, **M simulated datasets are generated** according to the bootstrapping process. Then, M different classifiers are trained. **The set of the predictors predict independently** and the **outputs are aggregated** to yield a single value.
+
+### How to Aggregate
+
+- Categorical Data
+	"Majority Voting" is the most commonly used method for categorical data. In this method, M classifiers simultaneously predict and the most frequently expected class is used as a result.
+- Continuous Data
+	For continuous data, the outputs from M predictors are averaged.
+
+## Boosting
+
+Boosting is a **family of machine learning algorithms that convert weak learners to strong ones**. While boosting is not algorithmically constrained, **most boosting algorithms consist of iteratively learning weak classifiers**. When a weak learner is added, the data weights are re-weighted. Misclassified data gain higher weight, so that **subsequent weak learners focus more on previously misclassified datapoints**.
+
+### Types of Boosting Algo.
+
+#### Adaboost (Adaptive Boosting)
+
+Subsequent classifiers are trained based on adapted dataset in which instances missclassified by previous classifiers are weighted more. On prediction, the outputs from the weak learners are combined into a weighted sum that represents the final output.
+
+![Adaboost pseudocode](/assets/Adaboost_pseudocode.png)
+
+#### GBM (Gradient Boosting Machine)
+
+In GBM, gradient means residual of the previous predictor. If the output of the i-th predictor is $y_i$, the next predictor is trained on the residual $y_{true} - y_i$.
+
+![GBM_examples](/assets/GBM_example.png)
+
+#### XGBoost & LightGBM
+
+XGBoost(eXtra Gradient Boost) is faster and more efficient than GBM. LightGBM is even faster than XGBoost.
+
+## Boosting vs. Bagging
+
+Compared to the *Bagging* methods which utilize multiple independent predictors, *Boosting* method utilizes multiple predictors sequentially.
+
+Boosting takes longer to train a model and more susceptible to overfitting. On the other hand, boosting shows better performance generally. Therefore, if the flexibility of a single model is not enough, boosting would be a good choice. If a overfitting is a problem, bagging would be a better choice.
