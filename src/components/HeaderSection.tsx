@@ -3,6 +3,9 @@
 import Link from "next/link"
 import ThemeSwitch from "@/components/ThemeSwitch"
 import { useState } from "react"
+import Image from "next/image"
+import Logo from "@/data/logo.svg"
+import LogoDark from "@/data/logo_dark.svg"
 
 const HEADER_INFO = {
 	headerTitle: "MinjunBlog",
@@ -98,14 +101,13 @@ const HeaderSection = () => {
 			<div>
 				<Link href="/" aria-label={HEADER_INFO.headerTitle}>
 					<div className="flex items-center justify-between">
-						{/* TODO: LOGO
-						<div className="mr-3">
-							<Logo />
-						</div> */}
-						<div className="h-6 text-2xl font-semibold sm:block ">
-							{/* {HEADER_INFO.headerTitle} */}
-							<span className="text-gray-700 dark:text-gray-300">Minjun</span><span className="text-primary-600 dark:text-primary-500">Blog</span>
+						<div className="mr-3 w-56 -translate-x-4 translate-y-2 md:w-80 md:-translate-x-7">
+							<Image src={Logo} alt="Minjun Park Logo" className="block dark:hidden" />
+							<Image src={LogoDark} alt="Minjun Park Logo" className="hidden dark:block" />
 						</div>
+						{/* <div className="h-6 text-2xl font-semibold sm:block ">
+							<span className="text-gray-700 dark:text-gray-300">Minjun</span><span className="text-primary-600 dark:text-primary-500">Blog</span>
+						</div> */}
 					</div>
 				</Link>
 			</div>

@@ -1,19 +1,14 @@
 import './globals.css'
-import type { Metadata } from 'next'
+import type { Metadata, ResolvingMetadata } from 'next'
 import { Inter } from 'next/font/google'
 import HeaderSection from '@/components/HeaderSection'
 import FooterSection from '@/components/FooterSection'
 import ThemeProvider from '@/components/ThemeProvider'
+import { defaultSEO } from '@/data/supportSEO'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export const metadata: Metadata = {
-  title: {
-    template: '%s | Minjun Blog',
-    default: 'Minjun Blog',
-  },
-  description: 'Welcome! This is Minjun &apos;s personal blog.',
-}
+export const metadata = defaultSEO('Minjun Blog', "Welcome! This is Minjun's personal blog.")
 
 export default function RootLayout({
   children,

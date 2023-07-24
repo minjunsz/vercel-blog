@@ -10,6 +10,9 @@ import { formatDate } from "@/lib/utils/format-data"
 import "./prism-night-owl.css"
 import "./syntax-highlight.css"
 import 'katex/dist/katex.min.css'
+import { Metadata } from "next"
+import { BLOG_INFO } from "@/data/blogMetaData"
+import { blogSEO } from "@/data/supportSEO"
 
 export const dynamicParams = false;
 
@@ -22,6 +25,14 @@ const AUTHOR_DETAILS = [{
 
 type Parameters = {
   slug: string
+}
+
+export async function generateMetadata(
+  { params }: { params: Parameters },
+): Promise<Metadata> {
+  const { frontMatter } = await getPostFromSlug(POST_DIR, params.slug)
+  const url = BLOG_INFO.siteUrl + "/blog/" + params.slug
+  return blogSEO({ frontMatter, url })
 }
 
 export async function generateStaticParams(): Promise<Parameters[]> {

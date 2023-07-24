@@ -8,5 +8,7 @@ export const PERSONAL_INFO = {
 
 export const BLOG_INFO = {
   author: "Minjun Park",
-  siteTitle: "Minjun's Blog",
+  siteTitle: "Minjun Blog",
+  siteUrl: "https://minjunsz.vercel.app",
+  siteLogo: "/logo.jpg"
 }
