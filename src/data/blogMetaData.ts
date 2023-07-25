@@ -11,4 +11,4 @@ export const BLOG_INFO = {
   siteTitle: "Minjun Blog",
   siteUrl: "https://minjunsz.vercel.app",
   siteLogo: "/logo.jpg"
-}
+} as const

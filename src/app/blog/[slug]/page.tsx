@@ -13,6 +13,7 @@ import 'katex/dist/katex.min.css'
 import { Metadata } from "next"
 import { BLOG_INFO } from "@/data/blogMetaData"
 import { blogSEO } from "@/data/supportSEO"
+import generateRSSFeed from "@/lib/utils/generateRSSFeed"
 
 export const dynamicParams = false;
 
@@ -36,6 +37,7 @@ export async function generateMetadata(
 }
 
 export async function generateStaticParams(): Promise<Parameters[]> {
+  await generateRSSFeed()
   const files = getFilesFromDir(POST_DIR)
 
   return files.map((file) => {
