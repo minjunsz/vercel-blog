@@ -4,6 +4,7 @@ export const PERSONAL_INFO = {
   company: "Seoul National University",
   email: "minjunsz@gmail.com",
   github: "https://github.com/minjunsz",
+  discord: "discordapp.com/users/minjunsz",
 }
 
 export const BLOG_INFO = {

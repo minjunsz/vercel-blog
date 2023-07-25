@@ -1,4 +1,4 @@
-import SocialIcon from '@/components/social-icons'
+import SocialIcon from '@/components/SocialIcons'
 import Image from 'next/image'
 import { PERSONAL_INFO } from '@/data/blogMetaData'
 import { defaultSEO } from '@/data/supportSEO'
@@ -6,7 +6,7 @@ import { defaultSEO } from '@/data/supportSEO'
 export const metadata = defaultSEO('About | Minjun Blog', "About me - Minjun Park")
 
 export default function AuthorLayout() {
-  const { name, occupation, company, email, github } = PERSONAL_INFO
+  const { name, occupation, company, email, github, discord } = PERSONAL_INFO
 
   return (
     <>
@@ -29,8 +29,9 @@ export default function AuthorLayout() {
             <div className="text-gray-500 dark:text-gray-400">{occupation}</div>
             <div className="text-gray-500 dark:text-gray-400">{company}</div>
             <div className="flex space-x-3 pt-6">
-              <SocialIcon kind="mail" href={`mailto:${email}`} size='8' />
-              <SocialIcon kind="github" href={github} size='8' />
+              <SocialIcon kind="mail" href={`mailto:${email}`} size='2rem' />
+              <SocialIcon kind="github" href={github} size='2rem' />
+              <SocialIcon kind="discord" href={discord} size='2rem' />
             </div>
           </div>
           <div className="prose max-w-none pt-8 pb-8 dark:prose-dark xl:col-span-2">

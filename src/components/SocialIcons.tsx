@@ -1,24 +1,23 @@
-import Mail from './mail'
-import Github from './github'
+import { HiMail } from 'react-icons/hi'
+import { FaDiscord, FaGithub } from 'react-icons/fa'
 
-// Icons taken from: https://simpleicons.org/
-
-const components = {
-  mail: Mail,
-  github: Github,
+const icons = {
+  mail: HiMail,
+  github: FaGithub,
+  discord: FaDiscord,
 }
 
 interface SocialIconProps {
-  kind: 'mail' | 'github',
+  kind: 'mail' | 'github' | 'discord',
   href: string,
-  size: string
+  size: string | number | undefined,
 }
 
 const SocialIcon = ({ kind, href, size }: SocialIconProps) => {
   if (!href || (kind === 'mail' && !/^mailto:\w+([.-]?\w+)@\w+([.-]?\w+)(.\w{2,3})+$/.test(href)))
     return null
 
-  const SocialSvg = components[kind]
+  const SelectedIcon = icons[kind]
 
   return (
     <a
@@ -28,7 +27,7 @@ const SocialIcon = ({ kind, href, size }: SocialIconProps) => {
       href={href}
     >
       <span className="sr-only">{kind}</span>
-      <SocialSvg className={`fill-current text-gray-700 hover:text-blue-500 dark:text-gray-200 dark:hover:text-blue-400 h-${size} w-${size}`} />
+      <SelectedIcon size={size} className={`fill-current text-gray-700 hover:text-blue-500 dark:text-gray-200 dark:hover:text-blue-400`} />
     </a>
   )
 }
