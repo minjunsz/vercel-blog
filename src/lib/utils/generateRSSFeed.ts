@@ -41,7 +41,8 @@ export default async function generateRSSFeed() {
         name: BLOG_INFO.author,
         email: PERSONAL_INFO.email,
         link: BLOG_INFO.siteUrl,
-      }]
+      }],
+      image: post.image ?? BLOG_INFO.siteUrl + "/logo.jpg",
     });
   });
 
