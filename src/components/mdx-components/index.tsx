@@ -7,12 +7,14 @@ import TOCInline, { TocHeading } from './TOCInline'
 import Pre from './Pre'
 import Image from './Image'
 import Link from './Link'
+import Code from './Code'
 
 const MDXComponents = {
   Image,
   TOCInline,
   a: Link,
   pre: Pre,
+  code: Code,
 }
 
 interface MDXPageProps {

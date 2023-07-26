@@ -1,4 +1,7 @@
 import { useState, useRef } from 'react'
+import { Fira_Code } from 'next/font/google'
+
+const firaCode = Fira_Code({ subsets: ['latin', 'greek', 'cyrillic'] })
 
 interface PreProps extends React.ComponentProps<'pre'> { }
 
@@ -64,7 +67,7 @@ const Pre = ({ children }: PreProps) => {
         </button>
       )}
 
-      <pre>{children}</pre>
+      <pre style={firaCode.style} >{children}</pre>
     </div>
   )
 }

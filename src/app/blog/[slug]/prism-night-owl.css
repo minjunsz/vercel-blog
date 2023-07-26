@@ -6,15 +6,9 @@
  * Added by Souvik Mandal [@SimpleIndian]
  */
 
-@font-face {
-  src: url(/assets/D2Coding-Ver1.3.2-20180524-all.ttc);
-  font-family: 'D2Coding';
-}
-
 code[class*="language-"],
 pre[class*="language-"] {
   color: #d6deeb;
-  font-family: 'D2Coding', Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
   text-align: left;
   white-space: pre;
   word-spacing: normal;
