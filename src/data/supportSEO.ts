@@ -3,7 +3,9 @@ import { BLOG_INFO } from "./blogMetaData"
 import { ParsedMDXFrontMatter } from "@/lib/mdx/schemas";
 
 export const defaultSEO = (title: string, description?: string): Metadata => {
+  const baseURL = !!process.env.VERCEL_URL ? `https://${BLOG_INFO.siteUrl}` : `http://localhost:${process.env.PORT || 3000}`;
   return {
+    metadataBase: new URL(baseURL),
     title,
     robots: { index: true, follow: true },
     description,
